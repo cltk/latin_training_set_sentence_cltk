@@ -18,10 +18,8 @@ def tokenize_sentences(input_file):
     trainer = nltk.tokenize.punkt.PunktTrainer(train_data, language_punkt_vars)
     params = trainer.get_params()
     sbd = nltk.tokenize.punkt.PunktSentenceTokenizer(params)
-
     with open(input_file) as f:
         to_be_tokenized = f.read()
-
     tokenenized_sentences = []
     for sentence in sbd.sentences_from_text(to_be_tokenized, realign_boundaries=True):
         tokenenized_sentences.append(sentence)
