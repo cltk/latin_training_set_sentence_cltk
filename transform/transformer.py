@@ -40,4 +40,4 @@ for file in files:
         word_count += len(no_double_end_ns_2.split(' '))
         with open('../training_sentences.txt', 'a') as f:
             f.write(no_double_end_ns_2)
-#print(word_count)
+print(word_count)
