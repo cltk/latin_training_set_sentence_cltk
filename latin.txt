@@ -1,0 +1,1 @@
+<nltk.tokenize.punkt.PunktTrainer object at 0x1039ee1d0>
