@@ -21,26 +21,31 @@ def train_from_file(training_file):
 def tokenize_sentences(input_file):
     with open('latin.pickle', 'rb') as f:
         train_data = pickle.load(f)
+    '''
     language_punkt_vars = nltk.tokenize.punkt.PunktLanguageVars
     trainer = nltk.tokenize.punkt.PunktTrainer(train_data, language_punkt_vars)
     params = trainer.get_params()
+    '''
+    #trainer = nltk.tokenize.punkt.PunktTrainer(train_data)
+    train_data.INCLUDE_ALL_COLLOCS = True
+    train_data.INCLUDE_ABBREV_COLLOCS = True
+    params = train_data.get_params()
     sbd = nltk.tokenize.punkt.PunktSentenceTokenizer(params)
+    #print(sbd)
     with open(input_file) as f:
         to_be_tokenized = f.read()
     tokenenized_sentences = []
     for sentence in sbd.sentences_from_text(to_be_tokenized, realign_boundaries=True):
         tokenenized_sentences.append(sentence)
     file_output_name = 'sentences_tokenized_' + input_file
-    with open(file_output_name, 'w') as f:
+    with open('tokenized_output.txt', 'w') as f:
         f.write(str(tokenenized_sentences))
     print(tokenenized_sentences)
 
-'''
 #temporary for debugging
 def main():
-    training_file = 'training_sentences.txt'
-    train_from_file(training_file)
+    input_file = 'transform/cat1.txt'
+    tokenize_sentences(input_file)
 
 if __name__ == '__main__':
     main()
-'''
