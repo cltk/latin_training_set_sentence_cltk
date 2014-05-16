@@ -1,4 +1,4 @@
-cltk_latin_sentence_tokenizer
+CLTK Latin sentence tokenizer
 =============================
 
 Training sets and tokenizer for the Latin language, for use with [Classical Language Toolkit](https://github.com/kylepjohnson/cltk).
