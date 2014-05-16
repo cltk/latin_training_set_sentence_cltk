@@ -1,14 +1,18 @@
 import nltk
+import pickle
 
 def train_from_file(training_file):
+    #PunktLanguageVars
     language_punkt_vars = nltk.tokenize.punkt.PunktLanguageVars
     language_punkt_vars.sent_end_chars=('.', '?', ';', ':')
+    #PunktTrainer
+    language_punkt_vars.internal_punctuation = ','
     with open(training_file) as f:
         train_data = f.read()
+    #build trainer
     trainer = nltk.tokenize.punkt.PunktTrainer(train_data, language_punkt_vars)
-    with open('latin.txt', 'w') as f:
-        f.write(str(trainer))
-    print(trainer)
+    with open('latin.txt', 'wb') as f:
+        pickle.dump(trainer, f)
 
 def tokenize_sentences(input_file):
     with open('latin.txt') as f:
@@ -26,3 +30,13 @@ def tokenize_sentences(input_file):
     with open(file_output_name, 'w') as f:
         f.write(str(tokenenized_sentences))
     print(tokenenized_sentences)
+
+'''
+#temporary for debugging
+def main():
+    training_file = 'training_sentences.txt'
+    train_from_file(training_file)
+
+if __name__ == '__main__':
+    main()
+'''
