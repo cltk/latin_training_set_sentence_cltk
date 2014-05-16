@@ -37,11 +37,12 @@ def tokenize_sentences(input_file):
     tokenenized_sentences = []
     for sentence in sbd.sentences_from_text(to_be_tokenized, realign_boundaries=True):
         tokenenized_sentences.append(sentence)
-    file_output_name = 'sentences_tokenized_' + input_file
+    #file_output_name = 'sentences_tokenized_' + input_file
     with open('tokenized_output.txt', 'w') as f:
         f.write(str(tokenenized_sentences))
     print(tokenenized_sentences)
 
+'''
 #temporary for debugging
 def main():
     input_file = 'transform/cat1.txt'
@@ -49,3 +50,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+'''
