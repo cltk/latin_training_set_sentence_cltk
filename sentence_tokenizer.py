@@ -1,3 +1,7 @@
+"""Build a sentence tokenizer for a language. Latin below.
+Some guidance available here: http://wiki.apertium.org/wiki/Sentence_segmenting
+"""
+
 import nltk
 import pickle
 
@@ -11,12 +15,12 @@ def train_from_file(training_file):
         train_data = f.read()
     #build trainer
     trainer = nltk.tokenize.punkt.PunktTrainer(train_data, language_punkt_vars)
-    with open('latin.txt', 'wb') as f:
+    with open('latin.pickle', 'wb') as f:
         pickle.dump(trainer, f)
 
 def tokenize_sentences(input_file):
-    with open('latin.txt') as f:
-        train_data = f.read()
+    with open('latin.pickle', 'rb') as f:
+        train_data = pickle.load(f)
     language_punkt_vars = nltk.tokenize.punkt.PunktLanguageVars
     trainer = nltk.tokenize.punkt.PunktTrainer(train_data, language_punkt_vars)
     params = trainer.get_params()
