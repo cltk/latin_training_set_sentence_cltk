@@ -1,23 +1,26 @@
-import nltk
+#import nltk
+from nltk.tokenize.punkt import PunktLanguageVars
+from nltk.tokenize.punkt import PunktSentenceTokenizer
+from nltk.tokenize.punkt import PunktTrainer
 import os
 
 def train_from_file(training_file):
-    language_punkt_vars = nltk.tokenize.punkt.PunktLanguageVars
+    language_punkt_vars = PunktLanguageVars
     language_punkt_vars.sent_end_chars=('.', '?', ';', ':')
     with open(training_file) as f:
         train_data = f.read()
-    trainer = nltk.tokenize.punkt.PunktTrainer(train_data, language_punkt_vars)
+    trainer = PunktTrainer(train_data, language_punkt_vars)
     with open('latin.txt', 'w') as f:
-        f.write(str(trainer))
+        f.write(trainer)
     print(trainer)
 
 def tokenize_sentences(input_file):
     with open('latin.txt') as f:
         train_data = f.read()
-    language_punkt_vars = nltk.tokenize.punkt.PunktLanguageVars
-    trainer = nltk.tokenize.punkt.PunktTrainer(train_data, language_punkt_vars)
+    language_punkt_vars = PunktLanguageVars
+    trainer = PunktTrainer(train_data, language_punkt_vars)
     params = trainer.get_params()
-    sbd = nltk.tokenize.punkt.PunktSentenceTokenizer(params)
+    sbd = PunktSentenceTokenizer(params)
     with open(input_file) as f:
         to_be_tokenized = f.read()
     tokenenized_sentences = []
