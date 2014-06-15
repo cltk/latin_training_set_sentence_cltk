@@ -3,6 +3,7 @@ CLTK Latin sentence tokenizer
 
 Training sets and and sentence tokenizer for the Latin language, for use with [Classical Language Toolkit](https://github.com/kylepjohnson/cltk).
 
+For instructions on making a new sentence trainer, see [instructions in the CLTK docs](http://docs.cltk.org/en/latest/classical_latin.html#sentence-tokenization).
 
 Contents
 --------
