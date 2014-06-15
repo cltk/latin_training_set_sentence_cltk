@@ -43,7 +43,7 @@ def tokenize_sentences(input_file):
     print(tokenenized_sentences)
 
 '''
-#temporary for debugging
+#for debugging
 def main():
     input_file = 'transform/cat1.txt'
     tokenize_sentences(input_file)
