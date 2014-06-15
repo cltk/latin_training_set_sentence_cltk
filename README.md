@@ -55,7 +55,7 @@ Contents
 
 `latin.pickle`: the actual sentence tokenizer
 
-`latin.tar.gz`: this is `latin.pickle` compressed and what is fetched by the cltk corpus importer
+`latin.tar.gz`: this is `latin.pickle` and `training_sentences.txt` compressed; what is fetched by the CLTK corpus importer
 
 `models/`: original texts and training sentences
 
