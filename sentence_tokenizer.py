@@ -21,11 +21,6 @@ def train_from_file(training_file):
 def tokenize_sentences(input_file):
     with open('latin.pickle', 'rb') as f:
         train_data = pickle.load(f)
-    '''
-    language_punkt_vars = nltk.tokenize.punkt.PunktLanguageVars
-    trainer = nltk.tokenize.punkt.PunktTrainer(train_data, language_punkt_vars)
-    params = trainer.get_params()
-    '''
     #trainer = nltk.tokenize.punkt.PunktTrainer(train_data)
     train_data.INCLUDE_ALL_COLLOCS = True
     train_data.INCLUDE_ABBREV_COLLOCS = True
@@ -43,7 +38,7 @@ def tokenize_sentences(input_file):
     print(tokenenized_sentences)
 
 '''
-#temporary for debugging
+#for debugging
 def main():
     input_file = 'transform/cat1.txt'
     tokenize_sentences(input_file)
