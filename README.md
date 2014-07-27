@@ -4,10 +4,9 @@ CLTK Latin sentence tokenizer
 About
 -----
 
-Training sets and and sentence tokenizer for the Latin language, for use with [Classical Language Toolkit](https://github.com/kylepjohnson/cltk).
+Training sets and and sentence tokenizer for the Latin language, for use with [Classical Language Toolkit](https://github.com/kylepjohnson/cltk). Unless you are a CLTK developer, there is nothing you need from this repository. The main file here is `latin.pickle`, which you [import according to the docs here](http://docs.cltk.org/en/latest/import_corpora.html#cltk-sentence-tokenizer-latin).
 
 The current training set is relatively small (~12K words, of Cicero's *Catilinarians*).
-
 
 Use
 ---
