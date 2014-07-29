@@ -19,7 +19,7 @@ for file in files:
     with open(original_path) as f:
         #print(file)
         read = f.read()
-        line_breaks = re.sub(r'([a-z]+)(\.|;|!|\?|:)\s([\w]+)', r'\1\2\n\3', read)
+        line_breaks = re.sub(r'([a-z]+)(\.|!|\?|:)\s([\w]+)', r'\1\2\n\3', read)
         no_section_num = re.sub(r'\[.+\]', r'', line_breaks)
         no_digits = re.sub(r'\d', r'', no_section_num)
         no_file_data_1 = re.sub(r'The Latin Library|The Classics Page|', r'', no_digits)
@@ -43,7 +43,7 @@ print(word_count)
 '''
 with open('cat4.txt') as f:
     read = f.read()
-line_breaks = re.sub(r'([a-z]+)(\.|;|!|\?|:)\s([\w]+)', r'\1\2\n\3', read)
+line_breaks = re.sub(r'([a-z]+)(\.|!|\?|:)\s([\w]+)', r'\1\2\n\3', read)
 no_section_num = re.sub(r'\[.+\]', r'', line_breaks)
 no_digits = re.sub(r'\d', r'', no_section_num)
 no_file_data_1 = re.sub(r'The Latin Library|The Classics Page|', r'', no_digits)
