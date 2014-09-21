@@ -5,7 +5,7 @@ About
 -----
 This repository contains a training set and rule set for tokenizing sentences for Latin, for use with the [Classical Language Toolkit](https://github.com/kylepjohnson/cltk). Unless you want to create a new training set for Latin sentences, there is nothing you need from this repository.
 
-To tokenize Latin sentences with the CLTK, first [import it and use according to the docs here](http://docs.cltk.org/en/latest/import_corpora.html#cltk-sentence-tokenizer-latin) and then see [instructions on tokenizing Greek sentences](http://docs.cltk.org/en/latest/classical_latin.html#sentence-tokenization).
+To tokenize Latin sentences with the CLTK, first [import it and use according to the docs here](http://docs.cltk.org/en/latest/import_corpora.html#cltk-sentence-tokenizer-latin) and then see [instructions on tokenizing Latin sentences](http://docs.cltk.org/en/latest/classical_latin.html#sentence-tokenization).
 
 `training_sentences.txt` is comprised Cicero's *Catilinarians* and is 12,245.
 
