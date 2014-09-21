@@ -3,68 +3,41 @@ CLTK Latin sentence tokenizer
 
 About
 -----
+This repository contains a training set and rule set for tokenizing sentences for Latin, for use with the [Classical Language Toolkit](https://github.com/kylepjohnson/cltk). Unless you want to create a new training set for Latin sentences, there is nothing you need from this repository.
 
-Training sets and and sentence tokenizer for the Latin language, for use with [Classical Language Toolkit](https://github.com/kylepjohnson/cltk). Unless you are a CLTK developer, there is nothing you need from this repository. The main file here is `latin.pickle`, which you [import according to the docs here](http://docs.cltk.org/en/latest/import_corpora.html#cltk-sentence-tokenizer-latin).
+To tokenize Latin sentences with the CLTK, first [import it and use according to the docs here](http://docs.cltk.org/en/latest/import_corpora.html#cltk-sentence-tokenizer-latin) and then see [instructions on tokenizing Greek sentences](http://docs.cltk.org/en/latest/classical_latin.html#sentence-tokenization).
 
-The current training set is relatively small (~12K words, of Cicero's *Catilinarians*).
+`training_sentences.txt` is comprised Cicero's *Catilinarians* and is 12,245.
 
 Use
 ---
 
-For instructions on tokenizing sentences, see [instructions in the CLTK docs](http://docs.cltk.org/en/latest/classical_latin.html#sentence-tokenization).
+To create a new training set, manually add tokenized sentences (with each sentence starting a new line) to `training_sentences.txt` and run `train_sentence_tokenizer.py`. The script outputs `latin.pickle`. To use this new file, copy it to your local CLTK data directory at `~/cltk_data/compiled/sentence_tokens_latin/`.
 
-To create a new training set (steps #1 and 2), do the following within this repository's root directory. Use steps #3 and 4 to test the output.
-
-```python
-In [1]: from sentence_tokenizer import train_from_file
-
-In [2]: train_from_file('training_sentences.txt')
-  Abbreviation: [47.2533] c
-  Abbreviation: [0.9149] sp
-  Abbreviation: [1.8298] ti
-  Abbreviation: [0.9149] pl
-  Abbreviation: [2.4870] d
-  Abbreviation: [0.9149] cn
-  Abbreviation: [14.0461] m
-  Abbreviation: [12.4351] q
-  Abbreviation: [2.4870] t
-  Abbreviation: [0.3366] kal
-  Abbreviation: [47.2533] l
-  Abbreviation: [37.3053] p
-  Rare Abbrev: fateatur.
-  Rare Abbrev: ingravescet.
-  Rare Abbrev: ceterorum.
-  Sent Starter: [69.1803] 'nam'
-  Sent Starter: [34.5212] 'itaque'
-  Sent Starter: [56.3912] 'etenim'
-  Sent Starter: [35.8697] 'sed'
-  Sent Starter: [45.4307] 'nunc'
-  Sent Starter: [60.3399] 'quodsi'
-
-In [3]: from sentence_tokenizer import tokenize_sentences
-
-In [4]: tokenize_sentences('models/cat1.txt')
-['Quo usque tandem abutere, Catilina, patientia nostra?', 'quam diu etiam furor iste tuus nos eludet?', 'quem ad finem sese effrenata iactabit audacia?', 'Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae, nihil timor populi, nihil concursus bonorum omnium, nihil hic munitissimus habendi senatus locus, nihil horum ora voltusque moverunt?', 'Patere tua consilia non sentis, constrictam iam horum omnium scientia teneri coniurationem tuam non vides?', 'Quid proxima, quid superiore nocte egeris, ubi fueris, quos convocaveris, quid consilii ceperis, quem nostrum ignorare arbitraris?', 'O tempora, o mores! Senatus haec intellegit.', 'Consul videt; hic tamen vivit.', 'Vivit?',]
+```shell
+$ python train_sentence_tokenizer.py 
+  Abbreviation: [14.0500] m
+  Abbreviation: [0.9151] sp
+  Abbreviation: [0.3367] kal
+  Abbreviation: [47.2641] c
+  Abbreviation: [47.2641] l
+  Abbreviation: [12.4379] q
+  Abbreviation: [1.8303] ti
+  Abbreviation: [0.9151] pl
+  Abbreviation: [37.3138] p
+  Abbreviation: [2.4876] d
+  Abbreviation: [0.9151] cn
+  Abbreviation: [2.4876] t
+  Sent Starter: [60.3538] 'quodsi'
+  Sent Starter: [34.5304] 'itaque'
+  Sent Starter: [69.1987] 'nam'
+  Sent Starter: [35.8925] 'sed'
+  Sent Starter: [45.4471] 'nunc'
+  Sent Starter: [56.4065] 'etenim'
 ```
 
-Now that you have a customized `latin.pickle`, you may copy it to your local CLTK data directory at `~/cltk_data/compiled/sentence_tokens_latin/`. If you think your tokenizer is an improvement upon the CLTK's current, please submit a pull request along with the original training set.
+If you think your training set and tokenizer is an improvement over the CLTK's current, please submit a pull request.
 
-
-Contents
---------
-
-`latin.pickle`: the actual sentence tokenizer
-
-`latin.tar.gz`: this is `latin.pickle` and `training_sentences.txt` compressed; what is fetched by the CLTK corpus importer
-
-`models/`: original texts and training sentences
-
-`sentence_tokenizer.py`: a script which generates `latin.pickle`
-
-`tokenized_output.txt`: example output from the trainer.
-
-`training_sentences.txt`: the combined output of the training sentences in `models`
-
-`transformer.py`: a quick and dirty script with which I cleaned up Cicero's *Catalinarians* (12,236 words) into `training_sentences.txt`. In it, each sentences starts a new line
-
-
+LICENSE
+-------
+This software is, like the rest of the CLTK, licensed under the MIT license (see LICENSE). The texts for the training sentences comes [from the Latin Library](https://github.com/kylepjohnson/corpus_latin_library) and are their copyright now resides in the public domain [explained here](http://thelatinlibrary.com/about.html).
