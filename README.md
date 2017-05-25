@@ -16,18 +16,24 @@ To create a new training set, manually add tokenized sentences (with each senten
 
 ```shell
 $ python train_sentence_tokenizer.py 
-  Abbreviation: [14.0500] m
-  Abbreviation: [0.9151] sp
-  Abbreviation: [0.3367] kal
-  Abbreviation: [47.2641] c
-  Abbreviation: [47.2641] l
-  Abbreviation: [12.4379] q
-  Abbreviation: [1.8303] ti
-  Abbreviation: [0.9151] pl
-  Abbreviation: [37.3138] p
-  Abbreviation: [2.4876] d
-  Abbreviation: [0.9151] cn
-  Abbreviation: [2.4876] t
+  Abbreviation: [2.4650] d
+  Abbreviation: [12.9953] m
+  Abbreviation: [0.9068] sp
+  Abbreviation: [49.2998] c
+  Abbreviation: [41.9048] p
+  Abbreviation: [12.3250] q
+  Abbreviation: [2.4650] n
+  Abbreviation: [54.2298] l
+  Abbreviation: [0.3336] ser
+  Abbreviation: [1.8136] ti
+  Abbreviation: [0.3336] mam
+  Abbreviation: [1.8136] cn
+  Abbreviation: [0.9068] ap
+  Abbreviation: [4.9300] t
+  Abbreviation: [0.3336] kal
+  Abbreviation: [0.3336] app
+  Abbreviation: [2.4650] k
+  Abbreviation: [0.9068] pl
   Sent Starter: [60.3538] 'quodsi'
   Sent Starter: [34.5304] 'itaque'
   Sent Starter: [69.1987] 'nam'
